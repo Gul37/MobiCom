@@ -1,3 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MobiCom</string>
+    <string name="app_name" translatable="false">MobiCom</string>
+    <string name="logo_letter" translatable="false">M</string>
+    <string name="balance_format" translatable="false">%1$,d ₸</string>
+    <string name="usage_value" translatable="false">%1$d / %2$d %3$s</string>
+    <string name="unit_sms" translatable="false">SMS</string>
+    <string name="sms" translatable="false">SMS</string>
+    <string name="feat_sms" translatable="false">%1$d SMS</string>
+    <string name="lang_ru" translatable="false">Русский</string>
+
+    <!-- Навигация -->
+    <string name="nav_home">Басты бет</string>
+    <string name="nav_tariffs">Тарифтер</string>
+    <string name="nav_topup">Толтыру</string>
+    <string name="nav_profile">Профиль</string>
+
+    <!-- Кіру / Тіркелу -->
+    <string name="login_title">Қош келдіңіз</string>
+    <string name="login_subtitle">Нөміріңізбен жүйеге кіріңіз</string>
+    <string name="hint_phone">Телефон нөмірі</string>
+    <string name="hint_password">Құпия сөз</string>
+    <string name="hint_name">Аты-жөні</string>
+    <string name="hint_confirm">Құпия сөзді қайталаңыз</string>
+    <string name="btn_login">Кіру</string>
+    <string name="btn_register">Тіркелу</string>
+    <string name="no_account">Аккаунтыңыз жоқ па?</string>
+    <string name="have_account">Аккаунт бар ма?</string>
+    <string name="register_title">Жаңа аккаунт</string>
+    <string name="register_subtitle">Деректеріңізді енгізіңіз</string>
+    <string name="error_phone">Нөмір 10 саннан тұруы керек</string>
+    <string name="error_password">Құпия сөз кемінде 6 таңба болуы керек</string>
+    <string name="error_name">Атыңызды енгізіңіз</string>
+    <string name="error_confirm">Құпия сөздер сәйкес келмейді</string>
+
+    <!-- Басты бет -->
+    <string name="hello_user">Сәлем, %1$s!</string>
+    <string name="balance_label">Баланс</string>
+    <string name="tariff_line">Тариф: %1$s</string>
+    <string name="btn_topup">Толтыру</string>
+    <string name="usage_title">Пакеттер қалдығы</string>
+    <string name="internet">Интернет</string>
+    <string name="minutes">Минут</string>
+    <string name="unit_gb">ГБ</string>
+    <string name="unit_min">мин</string>
+    <string name="btn_view_tariffs">Тарифтерді қарау</string>
+
+    <!-- Тарифтер -->
+    <string name="tariffs_title">Тарифтер</string>
+    <string name="no_tariffs">Тарифтер табылмады</string>
+    <string name="price_format">%1$,d ₸ / ай</string>
+    <string name="badge_current">Ағымдағы</string>
+    <string name="detail_title">Тариф сипаттамасы</string>
+    <string name="feat_gb">%1$d ГБ интернет</string>
+    <string name="feat_min">%1$d минут</string>
+    <string name="btn_connect">Қосу</string>
+    <string name="btn_current">Ағымдағы тариф</string>
+    <string name="connected_ok">Тариф сәтті қосылды</string>
+    <string name="not_enough">Қаражат жеткіліксіз</string>
+    <string name="action_topup">Толтыру</string>
+
+    <!-- Балансты толтыру -->
+    <string name="topup_title">Балансты толтыру</string>
+    <string name="quick_amounts">Жылдам таңдау</string>
+    <string name="hint_amount">Сома, ₸</string>
+    <string name="btn_pay">Толтыру</string>
+    <string name="error_amount">Сома 100 мен 100 000 ₸ аралығында болуы керек</string>
+    <string name="topup_ok">Баланс сәтті толтырылды</string>
+
+    <!-- Профиль -->
+    <string name="settings_title">Баптаулар</string>
+    <string name="dark_mode">Қараңғы режим</string>
+    <string name="language">Тіл</string>
+    <string name="lang_kk">Қазақша</string>
+    <string name="btn_logout">Шығу</string>
 </resources>

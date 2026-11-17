@@ -29,9 +29,17 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {            // ← осы 3 жолды қосыңыз
+        viewBinding = true
+    }
 }
 
 dependencies {
+    implementation("androidx.navigation:navigation-fragment:2.7.7")   // ← осы 5 жолды
+    implementation("androidx.navigation:navigation-ui:2.7.7")         //   қосыңыз
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.8.7")
     implementation(libs.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)

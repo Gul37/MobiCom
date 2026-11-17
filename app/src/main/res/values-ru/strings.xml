@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Навигация -->
+    <string name="nav_home">Главная</string>
+    <string name="nav_tariffs">Тарифы</string>
+    <string name="nav_topup">Пополнить</string>
+    <string name="nav_profile">Профиль</string>
+
+    <!-- Вход / Регистрация -->
+    <string name="login_title">Добро пожаловать</string>
+    <string name="login_subtitle">Войдите по номеру телефона</string>
+    <string name="hint_phone">Номер телефона</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_name">Имя и фамилия</string>
+    <string name="hint_confirm">Повторите пароль</string>
+    <string name="btn_login">Войти</string>
+    <string name="btn_register">Зарегистрироваться</string>
+    <string name="no_account">Нет аккаунта?</string>
+    <string name="have_account">Уже есть аккаунт?</string>
+    <string name="register_title">Новый аккаунт</string>
+    <string name="register_subtitle">Введите ваши данные</string>
+    <string name="error_phone">Номер должен содержать 10 цифр</string>
+    <string name="error_password">Пароль должен быть не короче 6 символов</string>
+    <string name="error_name">Введите имя</string>
+    <string name="error_confirm">Пароли не совпадают</string>
+
+    <!-- Главная -->
+    <string name="hello_user">Привет, %1$s!</string>
+    <string name="balance_label">Баланс</string>
+    <string name="tariff_line">Тариф: %1$s</string>
+    <string name="btn_topup">Пополнить</string>
+    <string name="usage_title">Остаток пакетов</string>
+    <string name="internet">Интернет</string>
+    <string name="minutes">Минуты</string>
+    <string name="unit_gb">ГБ</string>
+    <string name="unit_min">мин</string>
+    <string name="btn_view_tariffs">Смотреть тарифы</string>
+
+    <!-- Тарифы -->
+    <string name="tariffs_title">Тарифы</string>
+    <string name="no_tariffs">Тарифы не найдены</string>
+    <string name="price_format">%1$,d ₸ / мес</string>
+    <string name="badge_current">Текущий</string>
+    <string name="detail_title">Описание тарифа</string>
+    <string name="feat_gb">%1$d ГБ интернета</string>
+    <string name="feat_min">%1$d минут</string>
+    <string name="btn_connect">Подключить</string>
+    <string name="btn_current">Текущий тариф</string>
+    <string name="connected_ok">Тариф успешно подключён</string>
+    <string name="not_enough">Недостаточно средств</string>
+    <string name="action_topup">Пополнить</string>
+
+    <!-- Пополнение -->
+    <string name="topup_title">Пополнение баланса</string>
+    <string name="quick_amounts">Быстрый выбор</string>
+    <string name="hint_amount">Сумма, ₸</string>
+    <string name="btn_pay">Пополнить</string>
+    <string name="error_amount">Сумма должна быть от 100 до 100 000 ₸</string>
+    <string name="topup_ok">Баланс успешно пополнен</string>
+
+    <!-- Профиль -->
+    <string name="settings_title">Настройки</string>
+    <string name="dark_mode">Тёмная тема</string>
+    <string name="language">Язык</string>
+    <string name="lang_kk">Қазақша</string>
+    <string name="btn_logout">Выйти</string>
+</resources>
