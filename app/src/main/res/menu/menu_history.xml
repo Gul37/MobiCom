@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_sort"
+        android:title="@string/menu_sort">
+        <menu>
+            <group
+                android:id="@+id/group_sort"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/sort_date_desc"
+                    android:checked="true"
+                    android:title="@string/sort_date_desc" />
+                <item
+                    android:id="@+id/sort_date_asc"
+                    android:title="@string/sort_date_asc" />
+                <item
+                    android:id="@+id/sort_amount_desc"
+                    android:title="@string/sort_amount_desc" />
+                <item
+                    android:id="@+id/sort_amount_asc"
+                    android:title="@string/sort_amount_asc" />
+            </group>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_clear"
+        android:title="@string/menu_clear" />
+</menu>

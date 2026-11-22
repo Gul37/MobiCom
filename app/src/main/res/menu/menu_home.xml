@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_promo"
+        android:title="@string/promo_title" />
+
+    <!-- Submenu: Тіл -->
+    <item
+        android:id="@+id/action_language"
+        android:title="@string/profile_language">
+        <menu>
+            <group
+                android:id="@+id/group_language"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/lang_kk"
+                    android:checked="true"
+                    android:title="Қазақша" />
+                <item
+                    android:id="@+id/lang_ru"
+                    android:title="Русский" />
+            </group>
+        </menu>
+    </item>
+
+    <!-- Submenu: Тақырып -->
+    <item
+        android:id="@+id/action_theme"
+        android:title="@string/menu_theme">
+        <menu>
+            <group
+                android:id="@+id/group_theme"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/theme_light"
+                    android:title="@string/theme_light" />
+                <item
+                    android:id="@+id/theme_dark"
+                    android:checked="true"
+                    android:title="@string/theme_dark" />
+            </group>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/menu_about" />
+</menu>

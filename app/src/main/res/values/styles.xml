@@ -1,0 +1,12 @@
+<resources>
+    <style name="Theme.MobiCom" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="colorPrimary">@color/mobi_orange</item>
+        <item name="colorPrimaryVariant">#E99A00</item>
+        <item name="colorOnPrimary">@color/mobi_night</item>
+        <item name="android:windowBackground">@color/mobi_bg</item>
+        <item name="android:textColorPrimary">@color/mobi_text</item>
+        <item name="android:textColorSecondary">@color/mobi_muted</item>
+        <item name="android:textColor">@color/mobi_text</item>
+    </style>
+</resources>
