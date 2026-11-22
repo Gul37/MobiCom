@@ -1,3 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MobiCom</string>
+    <string name="app_name" translatable="false">MobiCom</string>
+
+    <string name="slogan">әрқашан байланыста</string>
+    <string name="nav_home">Басты</string>
+    <string name="nav_tariffs">Тарифтер</string>
+    <string name="nav_services">Қызметтер</string>
+    <string name="nav_topup">Толтыру</string>
+    <string name="nav_profile">Профиль</string>
+    <string name="action_ok">Жарайды</string>
+    <string name="action_confirm">Растау</string>
+    <string name="action_cancel">Бас тарту</string>
+    <string name="action_delete">Өшіру</string>
+    <string name="action_save">Сақтау</string>
+    <string name="action_back">Артқа</string>
+    <string name="login_title">Қош келдіңіз!</string>
+    <string name="login_hint">Жеке кабинетке кіру үшін нөміріңізді енгізіңіз</string>
+    <string name="hint_code">SMS-код</string>
+    <string name="login_terms">Пайдалану шарттарымен келісемін</string>
+    <string name="btn_login">Кіру</string>
+    <string name="error_phone">Нөмір 10 саннан тұруы керек</string>
+    <string name="error_code">Қате SMS-код</string>
+    <string name="error_terms">Шарттармен келісу керек</string>
+    <string name="toast_welcome">Қош келдіңіз!</string>
+    <string name="toast_registered">Тіркелу сәтті өтті. 1 000 ₸ бонус қосылды</string>
+    <string name="home_greeting">Сәлем, %1$s!</string>
+    <string name="home_tariff">Тариф: %1$s</string>
+    <string name="balance_label">Сіздің балансыңыз</string>
+    <string name="btn_topup">Толтыру</string>
+    <string name="btn_view_tariffs">Тарифтер</string>
+    <string name="usage_title">Қалдықтар</string>
+    <string name="usage_internet">Интернет</string>
+    <string name="usage_minutes">Минут</string>
+    <string name="usage_sms">SMS</string>
+    <string name="usage_gb">%1$.1f / %2$d ГБ</string>
+    <string name="usage_pcs">%1$d / %2$d</string>
+    <string name="about_message">MobiCom: мобильді оператор абонентінің қосымшасы. Курстық жоба.</string>
+    <string name="menu_theme">Тақырып</string>
+    <string name="theme_light">Жарық</string>
+    <string name="theme_dark">Қараңғы</string>
+    <string name="menu_about">Қосымша туралы</string>
+    <string name="tariffs_title">Тарифтер</string>
+    <string name="badge_current">Ағымдағы</string>
+    <string name="price_per_month">%1$d ₸ / ай</string>
+    <string name="tariff_info">%1$d ГБ • %2$d мин • %3$d SMS</string>
+    <string name="detail_internet">● %1$d ГБ интернет</string>
+    <string name="detail_minutes">● %1$d минут барлық желіге</string>
+    <string name="detail_sms">● %1$d SMS</string>
+    <string name="btn_connect">Тарифті қосу</string>
+    <string name="tariff_current">Ағымдағы тариф</string>
+    <string name="dialog_switch_title">Тарифті ауыстыру</string>
+    <string name="dialog_switch_message">«%1$s» тарифіне ауысу. Бағасы: %2$d ₸. Сома балансыңыздан алынады.</string>
+    <string name="toast_tariff_switched">Тариф қосылды</string>
+    <string name="toast_not_enough">Баланс жеткіліксіз. Балансты толтырыңыз</string>
+    <string name="services_title">Қосымша қызметтер</string>
+    <string name="services_hint">Белгі қойып қосыңыз. Ұзақ басса, мәзір ашылады.</string>
+    <string name="dialog_service_on">Қызмет қосылады. Бағасы: %1$s</string>
+    <string name="dialog_service_off">Қызмет өшіріледі (төлем қайтарылмайды). Жалғастырасыз ба?</string>
+    <string name="toast_service_on">Қызмет қосылды</string>
+    <string name="toast_service_off">Қызмет өшірілді</string>
+    <string name="ctx_details">Толығырақ</string>
+    <string name="ctx_activate">Қосу</string>
+    <string name="ctx_deactivate">Өшіру</string>
+    <string name="topup_title">Балансты толтыру</string>
+    <string name="topup_selected">Сома: %1$s</string>
+    <string name="hint_amount">Сома, ₸</string>
+    <string name="pay_method">Төлем тәсілі</string>
+    <string name="pay_card">Банк картасы</string>
+    <string name="pay_kaspi">Kaspi</string>
+    <string name="pay_terminal">Терминал</string>
+    <string name="topup_receipt">Чекті көрсету</string>
+    <string name="topup_sms_label">SMS-хабарлама алу</string>
+    <string name="toggle_on">Қосулы</string>
+    <string name="toggle_off">Өшірулі</string>
+    <string name="btn_pay">Толтыру</string>
+    <string name="error_amount">Сома %1$d мен %2$d ₸ аралығында болуы керек</string>
+    <string name="dialog_topup_title">Төлемді растау</string>
+    <string name="dialog_topup_message">Сома: %1$s\nТәсіл: %2$s</string>
+    <string name="dialog_topup_receipt">Чек көрсетіледі</string>
+    <string name="dialog_topup_sms">SMS-хабарлама жіберіледі</string>
+    <string name="toast_topup_done">Баланс толтырылды: %1$s</string>
+    <string name="history_title">Операциялар тарихы</string>
+    <string name="history_empty">Операциялар жоқ</string>
+    <string name="menu_sort">Сұрыптау</string>
+    <string name="sort_date_desc">Жаңасы алдымен</string>
+    <string name="sort_date_asc">Ескісі алдымен</string>
+    <string name="sort_amount_desc">Сома: көптен азға</string>
+    <string name="sort_amount_asc">Сома: азден көпке</string>
+    <string name="menu_clear">Тарихты тазалау</string>
+    <string name="dialog_clear_title">Тарихты тазалау</string>
+    <string name="dialog_clear_message">Барлық операциялар өшіріледі. Жалғастырасыз ба?</string>
+    <string name="stats_empty">Статистика жоқ</string>
+    <string name="stats_line">%1$s: %2$s (%3$d рет)</string>
+    <string name="tx_topup">Баланс толтыру</string>
+    <string name="tx_tariff">Тариф</string>
+    <string name="tx_service">Қызмет</string>
+    <string name="tx_bonus">Бонус</string>
+    <string name="settings_title">Баптаулар</string>
+    <string name="dark_mode">Қараңғы режим</string>
+    <string name="notify_enabled">Хабарландыруларды қосу</string>
+    <string name="profile_language">Тіл</string>
+    <string name="support_title">Қолдау қызметі</string>
+    <string name="profile_call">Қолдау қызметіне қоңырау: 611</string>
+    <string name="profile_share">Қосымшамен бөлісу</string>
+    <string name="share_text">MobiCom: мобильді оператор қосымшасы!</string>
+    <string name="profile_logout">Шығу</string>
+    <string name="dialog_logout_title">Шығу</string>
+    <string name="dialog_logout_message">Аккаунттан шығасыз ба?</string>
+    <string name="error_no_app">Бұл әрекетті орындайтын қосымша табылмады</string>
+    <string name="reminder_title">Еске салғыш</string>
+    <string name="reminder_type_topup">Балансты толтыру</string>
+    <string name="reminder_type_tariff">Тариф төлемі</string>
+    <string name="reminder_pick_date">Күнді диалогта таңдау</string>
+    <string name="reminder_pick_time">Уақытты диалогта таңдау</string>
+    <string name="reminder_enabled">Еске салғыш қосулы</string>
+    <string name="reminder_saved">Еске салғыш сақталды: %1$s</string>
+    <string name="reminder_off">Еске салғыш өшірілді</string>
+    <string name="admin_title">Админ панелі</string>
+    <string name="admin_users">Абоненттер: %1$d</string>
+    <string name="admin_purchases">Сатып алулар (тариф және қызмет): %1$d</string>
+    <string name="admin_revenue">Түсім: %1$s</string>
+    <string name="admin_tariffs">Тарифтер бойынша абоненттер:</string>
+    <string name="admin_services">Қызметтерді қосқандар:</string>
+    <string name="admin_stat_line">• %1$s: %2$d</string>
+    <string name="admin_users_title">Абоненттер тізімі</string>
+    <string name="admin_user_row">+7 %1$s\nТариф: %2$s, баланс: %3$s\nСатып алу: %4$d рет, жұмсалған: %5$s</string>
+    <string name="ring_title">Рингтондар</string>
+    <string name="ring_hint">MobiCom қоңырау әуендері. Басып тыңдаңыз, қайта басса тоқтайды.</string>
+    <string name="ring_play">Ойнату</string>
+    <string name="ring_stop">Тоқтату</string>
+    <string name="admin_revenue_label">Жалпы түсім</string>
+    <string name="admin_nav_stats">Статистика</string>
+    <string name="admin_nav_users">Абоненттер</string>
+    <string name="admin_nav_tariffs">Тарифтер</string>
+    <string name="admin_nav_services">Қызметтер</string>
+    <string name="admin_search_hint">Нөмір немесе аты бойынша іздеу</string>
+    <string name="admin_empty">Ештеңе табылмады</string>
+    <string name="admin_user_sub">Тариф: %1$s\nСатып алу: %2$d рет, жұмсалған: %3$s</string>
+    <string name="admin_action_balance">Баланс қосу</string>
+    <string name="admin_action_tariff">Тарифті ауыстыру</string>
+    <string name="admin_action_history">Операциялар тарихы</string>
+    <string name="admin_action_delete">Абонентті өшіру</string>
+    <string name="admin_balance_title">Баланс қосу</string>
+    <string name="admin_balance_done">Баланс қосылды: %1$s</string>
+    <string name="admin_tariff_changed">Тариф ауыстырылды</string>
+    <string name="admin_user_deleted">Абонент өшірілді</string>
+    <string name="admin_delete_user_msg">Абонент және оның барлық деректері өшіріледі. Жалғастырасыз ба?</string>
+    <string name="admin_invalid">Өрістерді дұрыс толтырыңыз</string>
+    <string name="admin_add">Қосу</string>
+    <string name="admin_edit">Өңдеу</string>
+    <string name="admin_saved">Сақталды</string>
+    <string name="admin_deleted">Өшірілді</string>
+    <string name="admin_delete_confirm">Өшіру керек пе?</string>
+    <string name="admin_tariff_in_use">Бұл тарифте абоненттер бар, өшіруге болмайды</string>
+    <string name="admin_subscribers">%1$d абонент</string>
+    <string name="admin_tariff_new">Жаңа тариф</string>
+    <string name="admin_tariff_edit">Тарифті өңдеу</string>
+    <string name="admin_service_new">Жаңа қызмет</string>
+    <string name="admin_service_edit">Қызметті өңдеу</string>
+    <string name="admin_service_sub">Қосқан абонент: %1$d</string>
+    <string name="admin_h_name">Атауы</string>
+    <string name="admin_h_price">Бағасы, ₸</string>
+    <string name="admin_h_gb">Интернет, ГБ</string>
+    <string name="admin_h_min">Минут</string>
+    <string name="admin_h_sms">SMS</string>
+    <string name="hint_name">Аты-жөніңіз</string>
+    <string name="register_title">Тіркелу</string>
+    <string name="register_hint">Аты-жөніңіз бен нөміріңізді енгізіңіз</string>
+    <string name="btn_register">Тіркелу</string>
+    <string name="switch_to_register">Аккаунт жоқ па? Тіркелу</string>
+    <string name="switch_to_login">Тіркелгенсіз бе? Кіру</string>
+    <string name="error_name">Атыңызды енгізіңіз (кемінде 2 әріп)</string>
+    <string name="error_not_registered">Бұл нөмір тіркелмеген. Алдымен тіркеліңіз</string>
+    <string name="error_registered">Бұл нөмір бұрын тіркелген. Кіру бетіне өтіңіз</string>
+    <string name="toast_welcome_name">Қош келдіңіз, %1$s!</string>
+    <string name="promo_title">Жарнама бейнесі</string>
+    <string name="promo_error">Бейнені ашу мүмкін болмады</string>
+
+    <string-array name="reminder_types">
+        <item>Балансты толтыру</item>
+        <item>Тариф төлемі</item>
+    </string-array>
+    <string-array name="history_filters">
+        <item>Барлығы</item>
+        <item>Толтыру</item>
+        <item>Тариф</item>
+        <item>Қызмет</item>
+        <item>Бонус</item>
+    </string-array>
+    <string-array name="languages">
+        <item>Қазақша</item>
+        <item>Русский</item>
+    </string-array>
+    <string-array name="ringtone_names">
+        <item>Вальс (Хисаиси)</item>
+        <item>Толқын</item>
+        <item>Neon Pulse</item>
+    </string-array>
 </resources>

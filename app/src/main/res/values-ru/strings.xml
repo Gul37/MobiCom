@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="slogan">всегда на связи</string>
+    <string name="nav_home">Главная</string>
+    <string name="nav_tariffs">Тарифы</string>
+    <string name="nav_services">Услуги</string>
+    <string name="nav_topup">Пополнить</string>
+    <string name="nav_profile">Профиль</string>
+    <string name="action_ok">ОК</string>
+    <string name="action_confirm">Подтвердить</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_save">Сохранить</string>
+    <string name="action_back">Назад</string>
+    <string name="login_title">Добро пожаловать!</string>
+    <string name="login_hint">Введите номер для входа в личный кабинет</string>
+    <string name="hint_code">SMS-код</string>
+    <string name="login_terms">Я согласен с условиями использования</string>
+    <string name="btn_login">Войти</string>
+    <string name="error_phone">Номер должен состоять из 10 цифр</string>
+    <string name="error_code">Неверный SMS-код</string>
+    <string name="error_terms">Нужно принять условия</string>
+    <string name="toast_welcome">Добро пожаловать!</string>
+    <string name="toast_registered">Регистрация прошла успешно. Начислен бонус 1 000 ₸</string>
+    <string name="home_greeting">Здравствуйте, %1$s!</string>
+    <string name="home_tariff">Тариф: %1$s</string>
+    <string name="balance_label">Ваш баланс</string>
+    <string name="btn_topup">Пополнить</string>
+    <string name="btn_view_tariffs">Тарифы</string>
+    <string name="usage_title">Остатки</string>
+    <string name="usage_internet">Интернет</string>
+    <string name="usage_minutes">Минуты</string>
+    <string name="usage_sms">SMS</string>
+    <string name="usage_gb">%1$.1f / %2$d ГБ</string>
+    <string name="usage_pcs">%1$d / %2$d</string>
+    <string name="about_message">MobiCom: приложение абонента мобильного оператора. Курсовой проект.</string>
+    <string name="menu_theme">Тема</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="menu_about">О приложении</string>
+    <string name="tariffs_title">Тарифы</string>
+    <string name="badge_current">Текущий</string>
+    <string name="price_per_month">%1$d ₸ / мес</string>
+    <string name="tariff_info">%1$d ГБ • %2$d мин • %3$d SMS</string>
+    <string name="detail_internet">● %1$d ГБ интернета</string>
+    <string name="detail_minutes">● %1$d минут на все сети</string>
+    <string name="detail_sms">● %1$d SMS</string>
+    <string name="btn_connect">Подключить тариф</string>
+    <string name="tariff_current">Текущий тариф</string>
+    <string name="dialog_switch_title">Смена тарифа</string>
+    <string name="dialog_switch_message">Переход на тариф «%1$s». Стоимость: %2$d ₸. Сумма будет списана с баланса.</string>
+    <string name="toast_tariff_switched">Тариф подключён</string>
+    <string name="toast_not_enough">Недостаточно средств. Пополните баланс</string>
+    <string name="services_title">Дополнительные услуги</string>
+    <string name="services_hint">Отметьте галочкой, чтобы подключить. Долгое нажатие открывает меню.</string>
+    <string name="dialog_service_on">Услуга будет подключена. Стоимость: %1$s</string>
+    <string name="dialog_service_off">Услуга будет отключена (оплата не возвращается). Продолжить?</string>
+    <string name="toast_service_on">Услуга подключена</string>
+    <string name="toast_service_off">Услуга отключена</string>
+    <string name="ctx_details">Подробнее</string>
+    <string name="ctx_activate">Подключить</string>
+    <string name="ctx_deactivate">Отключить</string>
+    <string name="topup_title">Пополнение баланса</string>
+    <string name="topup_selected">Сумма: %1$s</string>
+    <string name="hint_amount">Сумма, ₸</string>
+    <string name="pay_method">Способ оплаты</string>
+    <string name="pay_card">Банковская карта</string>
+    <string name="pay_kaspi">Kaspi</string>
+    <string name="pay_terminal">Терминал</string>
+    <string name="topup_receipt">Показать чек</string>
+    <string name="topup_sms_label">Получать SMS-уведомление</string>
+    <string name="toggle_on">Вкл</string>
+    <string name="toggle_off">Выкл</string>
+    <string name="btn_pay">Пополнить</string>
+    <string name="error_amount">Сумма должна быть от %1$d до %2$d ₸</string>
+    <string name="dialog_topup_title">Подтверждение платежа</string>
+    <string name="dialog_topup_message">Сумма: %1$s\nСпособ: %2$s</string>
+    <string name="dialog_topup_receipt">Чек будет показан</string>
+    <string name="dialog_topup_sms">Будет отправлено SMS-уведомление</string>
+    <string name="toast_topup_done">Баланс пополнен: %1$s</string>
+    <string name="history_title">История операций</string>
+    <string name="history_empty">Операций нет</string>
+    <string name="menu_sort">Сортировка</string>
+    <string name="sort_date_desc">Сначала новые</string>
+    <string name="sort_date_asc">Сначала старые</string>
+    <string name="sort_amount_desc">Сумма: по убыванию</string>
+    <string name="sort_amount_asc">Сумма: по возрастанию</string>
+    <string name="menu_clear">Очистить историю</string>
+    <string name="dialog_clear_title">Очистка истории</string>
+    <string name="dialog_clear_message">Все операции будут удалены. Продолжить?</string>
+    <string name="stats_empty">Статистики нет</string>
+    <string name="stats_line">%1$s: %2$s (%3$d раз)</string>
+    <string name="tx_topup">Пополнение баланса</string>
+    <string name="tx_tariff">Тариф</string>
+    <string name="tx_service">Услуга</string>
+    <string name="tx_bonus">Бонус</string>
+    <string name="settings_title">Настройки</string>
+    <string name="dark_mode">Тёмная тема</string>
+    <string name="notify_enabled">Включить уведомления</string>
+    <string name="profile_language">Язык</string>
+    <string name="support_title">Служба поддержки</string>
+    <string name="profile_call">Позвонить в поддержку: 611</string>
+    <string name="profile_share">Поделиться приложением</string>
+    <string name="share_text">MobiCom: приложение мобильного оператора!</string>
+    <string name="profile_logout">Выйти</string>
+    <string name="dialog_logout_title">Выход</string>
+    <string name="dialog_logout_message">Выйти из аккаунта?</string>
+    <string name="error_no_app">Не найдено приложение для этого действия</string>
+    <string name="reminder_title">Напоминание</string>
+    <string name="reminder_type_topup">Пополнить баланс</string>
+    <string name="reminder_type_tariff">Оплата тарифа</string>
+    <string name="reminder_pick_date">Выбрать дату в диалоге</string>
+    <string name="reminder_pick_time">Выбрать время в диалоге</string>
+    <string name="reminder_enabled">Напоминание включено</string>
+    <string name="reminder_saved">Напоминание сохранено: %1$s</string>
+    <string name="reminder_off">Напоминание отключено</string>
+    <string name="admin_title">Панель администратора</string>
+    <string name="admin_users">Абоненты: %1$d</string>
+    <string name="admin_purchases">Покупки (тарифы и услуги): %1$d</string>
+    <string name="admin_revenue">Выручка: %1$s</string>
+    <string name="admin_tariffs">Абоненты по тарифам:</string>
+    <string name="admin_services">Подключили услуги:</string>
+    <string name="admin_stat_line">• %1$s: %2$d</string>
+    <string name="admin_users_title">Список абонентов</string>
+    <string name="admin_user_row">+7 %1$s\nТариф: %2$s, баланс: %3$s\nПокупок: %4$d, потрачено: %5$s</string>
+    <string name="ring_title">Рингтоны</string>
+    <string name="ring_hint">Мелодии звонка MobiCom. Нажмите, чтобы прослушать, повторное нажатие останавливает.</string>
+    <string name="ring_play">Играть</string>
+    <string name="ring_stop">Стоп</string>
+    <string name="admin_revenue_label">Общая выручка</string>
+    <string name="admin_nav_stats">Статистика</string>
+    <string name="admin_nav_users">Абоненты</string>
+    <string name="admin_nav_tariffs">Тарифы</string>
+    <string name="admin_nav_services">Услуги</string>
+    <string name="admin_search_hint">Поиск по номеру или имени</string>
+    <string name="admin_empty">Ничего не найдено</string>
+    <string name="admin_user_sub">Тариф: %1$s\nПокупок: %2$d, потрачено: %3$s</string>
+    <string name="admin_action_balance">Пополнить баланс</string>
+    <string name="admin_action_tariff">Сменить тариф</string>
+    <string name="admin_action_history">История операций</string>
+    <string name="admin_action_delete">Удалить абонента</string>
+    <string name="admin_balance_title">Пополнение баланса</string>
+    <string name="admin_balance_done">Баланс пополнен: %1$s</string>
+    <string name="admin_tariff_changed">Тариф изменён</string>
+    <string name="admin_user_deleted">Абонент удалён</string>
+    <string name="admin_delete_user_msg">Абонент и все его данные будут удалены. Продолжить?</string>
+    <string name="admin_invalid">Заполните поля правильно</string>
+    <string name="admin_add">Добавить</string>
+    <string name="admin_edit">Изменить</string>
+    <string name="admin_saved">Сохранено</string>
+    <string name="admin_deleted">Удалено</string>
+    <string name="admin_delete_confirm">Удалить?</string>
+    <string name="admin_tariff_in_use">На этом тарифе есть абоненты, удалить нельзя</string>
+    <string name="admin_subscribers">Абонентов: %1$d</string>
+    <string name="admin_tariff_new">Новый тариф</string>
+    <string name="admin_tariff_edit">Изменение тарифа</string>
+    <string name="admin_service_new">Новая услуга</string>
+    <string name="admin_service_edit">Изменение услуги</string>
+    <string name="admin_service_sub">Подключили: %1$d</string>
+    <string name="admin_h_name">Название</string>
+    <string name="admin_h_price">Цена, ₸</string>
+    <string name="admin_h_gb">Интернет, ГБ</string>
+    <string name="admin_h_min">Минуты</string>
+    <string name="admin_h_sms">SMS</string>
+    <string name="hint_name">Имя и фамилия</string>
+    <string name="register_title">Регистрация</string>
+    <string name="register_hint">Введите имя и номер телефона</string>
+    <string name="btn_register">Зарегистрироваться</string>
+    <string name="switch_to_register">Нет аккаунта? Зарегистрироваться</string>
+    <string name="switch_to_login">Уже есть аккаунт? Войти</string>
+    <string name="error_name">Введите имя (минимум 2 буквы)</string>
+    <string name="error_not_registered">Этот номер не зарегистрирован. Сначала зарегистрируйтесь</string>
+    <string name="error_registered">Этот номер уже зарегистрирован. Перейдите ко входу</string>
+    <string name="toast_welcome_name">Добро пожаловать, %1$s!</string>
+    <string name="promo_title">Рекламное видео</string>
+    <string name="promo_error">Не удалось открыть видео</string>
+
+    <string-array name="reminder_types">
+        <item>Пополнить баланс</item>
+        <item>Оплата тарифа</item>
+    </string-array>
+    <string-array name="history_filters">
+        <item>Все</item>
+        <item>Пополнение</item>
+        <item>Тариф</item>
+        <item>Услуга</item>
+        <item>Бонус</item>
+    </string-array>
+    <string-array name="languages">
+        <item>Қазақша</item>
+        <item>Русский</item>
+    </string-array>
+    <string-array name="ringtone_names">
+        <item>Вальс (Хисаиси)</item>
+        <item>Волна</item>
+        <item>Neon Pulse</item>
+    </string-array>
+</resources>
