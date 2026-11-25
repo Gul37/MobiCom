@@ -13,11 +13,11 @@
     <string name="action_save">Сохранить</string>
     <string name="action_back">Назад</string>
     <string name="login_title">Добро пожаловать!</string>
-    <string name="login_hint">Введите номер для входа в личный кабинет</string>
+    <string name="login_hint">Для входа в личный кабинет введите номер и пароль</string>
     <string name="hint_code">SMS-код</string>
     <string name="login_terms">Я согласен с условиями использования</string>
     <string name="btn_login">Войти</string>
-    <string name="error_phone">Номер должен состоять из 10 цифр</string>
+    <string name="error_phone">Номер должен состоять из 10 или 11 цифр</string>
     <string name="error_code">Неверный SMS-код</string>
     <string name="error_terms">Нужно принять условия</string>
     <string name="toast_welcome">Добро пожаловать!</string>
@@ -98,8 +98,7 @@
     <string name="dark_mode">Тёмная тема</string>
     <string name="notify_enabled">Включить уведомления</string>
     <string name="profile_language">Язык</string>
-    <string name="support_title">Служба поддержки</string>
-    <string name="profile_call">Позвонить в поддержку: 611</string>
+    <string name="support_title">Поддержка и салоны</string>
     <string name="profile_share">Поделиться приложением</string>
     <string name="share_text">MobiCom: приложение мобильного оператора!</string>
     <string name="profile_logout">Выйти</string>
@@ -124,7 +123,7 @@
     <string name="admin_users_title">Список абонентов</string>
     <string name="admin_user_row">+7 %1$s\nТариф: %2$s, баланс: %3$s\nПокупок: %4$d, потрачено: %5$s</string>
     <string name="ring_title">Рингтоны</string>
-    <string name="ring_hint">Мелодии звонка MobiCom. Нажмите, чтобы прослушать, повторное нажатие останавливает.</string>
+    <string name="ring_hint">Мелодии MobiCom. Выберите мелодию и управляйте плеером: пауза, перемотка.</string>
     <string name="ring_play">Играть</string>
     <string name="ring_stop">Стоп</string>
     <string name="admin_revenue_label">Общая выручка</string>
@@ -164,7 +163,7 @@
     <string name="admin_h_sms">SMS</string>
     <string name="hint_name">Имя и фамилия</string>
     <string name="register_title">Регистрация</string>
-    <string name="register_hint">Введите имя и номер телефона</string>
+    <string name="register_hint">Введите имя, номер и пароль</string>
     <string name="btn_register">Зарегистрироваться</string>
     <string name="switch_to_register">Нет аккаунта? Зарегистрироваться</string>
     <string name="switch_to_login">Уже есть аккаунт? Войти</string>
@@ -174,6 +173,81 @@
     <string name="toast_welcome_name">Добро пожаловать, %1$s!</string>
     <string name="promo_title">Рекламное видео</string>
     <string name="promo_error">Не удалось открыть видео</string>
+
+    <string name="error_phone_long">Номер не должен быть длиннее 11 цифр</string>
+    <string name="error_code_first">Сначала нажмите «Получить код»</string>
+    <string name="error_cloud">Номер не найден или нет интернета. Сначала зарегистрируйтесь</string>
+    <string name="login_wait">Проверка...</string>
+    <string name="btn_send_code">Получить код</string>
+    <string name="btn_resend_code">Отправить снова (%1$d)</string>
+    <string name="code_sent_to">Код отправлен на номер +7 %1$s (SMS-уведомление). Действует 2 минуты</string>
+    <string name="sms_sender">MobiCom SMS</string>
+    <string name="sms_text">Код подтверждения: %1$s. Никому не сообщайте!</string>
+    <string name="sms_topup_text">Баланс пополнен: %1$s. Остаток: %2$s</string>
+    <string name="toast_code_sent">Код отправлен. Посмотрите уведомление</string>
+    <string name="card_bank">Банк</string>
+    <string name="bank_kaspi">Kaspi Bank</string>
+    <string name="card_number_hint">Номер карты: 0000 0000 0000 0000</string>
+    <string name="card_expiry_hint">Срок ММ/ГГ</string>
+    <string name="card_cvv_hint">CVV</string>
+    <string name="card_holder_hint">Имя владельца (латиницей)</string>
+    <string name="card_note">Данные карты не сохраняются. В истории записываются только последние 4 цифры</string>
+    <string name="error_card_number">Неверный номер карты (16 цифр)</string>
+    <string name="error_card_expiry">Неверный или истёкший срок (ММ/ГГ)</string>
+    <string name="error_card_cvv">CVV состоит из 3 цифр</string>
+    <string name="error_card_holder">Имя нужно писать латиницей</string>
+    <string name="terminal_info">В терминале выберите услугу «MobiCom» и введите номер: +7 %1$s. Деньги поступят сразу</string>
+    <string name="topup_processing">Платёж обрабатывается...</string>
+    <string name="receipt_title">Чек</string>
+    <string name="receipt_text">Чек MobiCom\nДата: %1$s\nАбонент: +7 %2$s\nСпособ: %3$s\nСумма: %4$s\nНовый баланс: %5$s</string>
+    <string name="receipt_saved">Файл: %1$s</string>
+    <string name="menu_export">Сохранить в файл</string>
+    <string name="export_done">История сохранена в файл:\n%1$s</string>
+    <string name="salons_title">Салоны (GPS)</string>
+    <string name="salons_button">Ближайшие салоны (GPS)</string>
+    <string name="salons_hint">Нажмите на салон, чтобы открыть карту. Расстояние считается по GPS.</string>
+    <string name="gps_locate">Определить место</string>
+    <string name="gps_settings">Настройки геолокации</string>
+    <string name="gps_provider">%1$s: %2$s</string>
+    <string name="gps_provider_name">Провайдер</string>
+    <string name="gps_no_permission">Нет разрешения на определение местоположения</string>
+    <string name="gps_searching">Определяем место... Подойдите к окну или включите Wi-Fi</string>
+    <string name="gps_nearest">Ближайший салон: %1$s (%2$s)</string>
+    <string name="gps_nearest_unknown">Ближайший салон будет показан после определения места</string>
+    <string name="ring_choose">Выберите мелодию</string>
+    <string name="ring_back10">Назад на 10 секунд</string>
+    <string name="ring_forward10">Вперёд на 10 секунд</string>
+    <string name="ring_error">Не удалось открыть мелодию</string>
+    <string name="admin_nav_cloud">Онлайн</string>
+    <string name="cloud_connecting">Подключение к онлайн-базе...</string>
+    <string name="cloud_count">Абонентов, зарегистрированных онлайн: %1$d</string>
+    <string name="cloud_error">Онлайн-база недоступна: %1$s</string>
+    <string name="cloud_row_sub">Тариф: %1$s\nУстройство: %2$s\nПароль: %3$s</string>
+    <string name="cloud_detail">Тариф: %1$s\nБаланс: %2$s\nУстройство: %3$s\nЗарегистрирован: %4$s\nПоследнее изменение: %5$s\nПароль: %6$s</string>
+
+    <string name="hint_password">Пароль</string>
+    <string name="hint_new_password">Новый пароль</string>
+    <string name="show_password">Показать пароль</string>
+    <string name="forgot_password">Забыли пароль</string>
+    <string name="forgot_phone">Забыли номер</string>
+    <string name="error_password_short">Пароль должен содержать минимум %1$d символов</string>
+    <string name="error_password_empty">Введите пароль</string>
+    <string name="error_password_wrong">Неверный пароль</string>
+    <string name="error_name_not_found">Абонент с таким именем не найден</string>
+    <string name="recovery_password_title">Восстановление пароля</string>
+    <string name="recovery_phone_title">Напомнить номер</string>
+    <string name="recovery_password_hint">Введите зарегистрированный номер. Код придёт в SMS-уведомлении</string>
+    <string name="recovery_phone_hint">Введите имя, указанное при регистрации. После кода покажем ваш номер</string>
+    <string name="recovery_code_sent">Код отправлен в виде SMS-уведомления. Действует 2 минуты</string>
+    <string name="btn_confirm_code">Подтвердить</string>
+    <string name="recovery_password_done">Пароль обновлён. Теперь войдите с новым паролем</string>
+    <string name="recovery_phone_result">Ваш номер:\n%1$s</string>
+    <string name="admin_password_line">Пароль: %1$s</string>
+    <string name="admin_action_password">Изменить пароль</string>
+    <string name="admin_password_current">Текущий пароль админа</string>
+    <string name="admin_password_changed">Пароль изменён</string>
+    <string name="admin_change_password">Изменить пароль админа</string>
+    <string name="services_toggled_on">Услуга подключена</string>
 
     <string-array name="reminder_types">
         <item>Пополнить баланс</item>
@@ -194,5 +268,14 @@
         <item>Вальс (Хисаиси)</item>
         <item>Волна</item>
         <item>Neon Pulse</item>
+    </string-array>
+
+    <string-array name="banks">
+        <item>Halyk Bank</item>
+        <item>Jusan Bank</item>
+        <item>Forte Bank</item>
+        <item>Freedom Bank</item>
+        <item>Bereke Bank</item>
+        <item>Другой банк</item>
     </string-array>
 </resources>

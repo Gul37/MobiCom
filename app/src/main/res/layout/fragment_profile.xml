@@ -112,12 +112,12 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/buttonCall"
+            android:id="@+id/buttonSalons"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/profile_call" />
+            android:text="@string/salons_button" />
 
         <Button
             android:id="@+id/buttonShare"
@@ -135,3 +135,4 @@
             android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>
+

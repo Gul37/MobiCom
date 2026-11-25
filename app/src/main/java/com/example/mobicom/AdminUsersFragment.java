@@ -1,4 +1,4 @@
-package kz.mobicom.app;
+package com.example.mobicom;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -81,13 +81,16 @@ public class AdminUsersFragment extends LogFragment {
                 getString(R.string.admin_action_balance),
                 getString(R.string.admin_action_tariff),
                 getString(R.string.admin_action_history),
+                getString(R.string.admin_action_password),
                 getString(R.string.admin_action_delete)};
         new MaterialAlertDialogBuilder(requireContext())
-                .setTitle(u.name + ", +7 " + u.phone)
+                .setTitle(u.name + ", +7 " + u.phone + "\n" + getString(R.string.admin_password_line,
+                        u.password == null ? "—" : u.password))
                 .setItems(actions, (d, which) -> {
                     if (which == 0) addBalance(u);
                     else if (which == 1) changeTariff(u);
                     else if (which == 2) showHistory(u);
+                    else if (which == 3) changePassword(u);
                     else deleteUser(u);
                 })
                 .show();
@@ -121,6 +124,23 @@ public class AdminUsersFragment extends LogFragment {
                     reload();
                 })
                 .show();
+    }
+
+    /** Админ абонентке жаңа пароль қоя алады (мысалы, ұмытып қалса). */
+    private void changePassword(Models.AdminUser u) {
+        AdminDialogs.form(requireContext(), R.string.admin_action_password,
+                new String[]{getString(R.string.hint_new_password)},
+                new int[]{InputType.TYPE_CLASS_TEXT}, new String[]{u.password}, v -> {
+                    if (!Validators.isPasswordValid(v[0])) {
+                        Toast.makeText(requireContext(),
+                                getString(R.string.error_password_short, Validators.MIN_PASSWORD),
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    Db.get(requireContext()).setPassword(u.id, v[0]);
+                    toast(R.string.admin_password_changed);
+                    reload();
+                });
     }
 
     private void showHistory(Models.AdminUser u) {
@@ -161,7 +181,8 @@ public class AdminUsersFragment extends LogFragment {
         public void onBindViewHolder(@NonNull Holder h, int position) {
             Models.AdminUser u = items.get(position);
             h.title.setText(u.name + ", +7 " + u.phone);
-            h.sub.setText(getString(R.string.admin_user_sub, u.tariffName, u.purchases, Ui.money(u.spent)));
+            h.sub.setText(getString(R.string.admin_user_sub, u.tariffName, u.purchases, Ui.money(u.spent))
+                    + "\n" + getString(R.string.admin_password_line, u.password == null ? "—" : u.password));
             h.right.setText(Ui.money(u.balance));
             h.itemView.setOnClickListener(v -> showActions(u));
         }
@@ -181,4 +202,3 @@ public class AdminUsersFragment extends LogFragment {
         }
     }
 }
-

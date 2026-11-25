@@ -1,4 +1,4 @@
-package kz.mobicom.app;
+package com.example.mobicom;
 
 import android.content.Context;
 import android.view.View;

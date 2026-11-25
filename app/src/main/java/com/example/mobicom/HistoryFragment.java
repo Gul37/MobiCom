@@ -1,4 +1,4 @@
-package kz.mobicom.app;
+package com.example.mobicom;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -99,7 +99,10 @@ public class HistoryFragment extends LogFragment {
         else if (id == R.id.sort_date_asc) sort = "date_asc";
         else if (id == R.id.sort_amount_desc) sort = "amount_desc";
         else if (id == R.id.sort_amount_asc) sort = "amount_asc";
-        else if (id == R.id.action_clear) {
+        else if (id == R.id.action_export) {
+            exportToFile();
+            return true;
+        } else if (id == R.id.action_clear) {
             new MaterialAlertDialogBuilder(requireContext())
                     .setTitle(R.string.dialog_clear_title)
                     .setMessage(R.string.dialog_clear_message)
@@ -116,6 +119,33 @@ public class HistoryFragment extends LogFragment {
         item.setChecked(true);
         reload();
         return true;
+    }
+
+    /** Файлдық жүйе: тарихты .txt файлға сақтайды (сыртқы жад: Android/data/<package>/files). */
+    private void exportToFile() {
+        Db db = Db.get(requireContext());
+        int userId = Prefs.getUserId(requireContext());
+        Models.User u = db.getUser(userId);
+        StringBuilder sb = new StringBuilder();
+        sb.append("MobiCom: ").append(getString(R.string.history_title)).append('\n');
+        if (u != null) sb.append("+7 ").append(u.phone).append('\n');
+        sb.append("----------------------------------------\n");
+        for (Models.Tx tx : db.getTransactions(userId, null, "date_desc")) {
+            sb.append(tx.createdAt).append("  ").append(Ui.txTitle(requireContext(), tx))
+                    .append("  ").append(Ui.signedMoney(tx.amount)).append('\n');
+        }
+        try {
+            java.io.File file = FileStore.saveExternal(requireContext(),
+                    "history_" + (u == null ? "user" : u.phone) + ".txt", sb.toString());
+            new MaterialAlertDialogBuilder(requireContext())
+                    .setTitle(R.string.menu_export)
+                    .setMessage(getString(R.string.export_done, file.getAbsolutePath()))
+                    .setPositiveButton(R.string.action_ok, null)
+                    .show();
+        } catch (java.io.IOException e) {
+            android.widget.Toast.makeText(requireContext(), String.valueOf(e.getMessage()),
+                    android.widget.Toast.LENGTH_LONG).show();
+        }
     }
 
     /** PopupMenu: жолды ұзақ басқанда «Өшіру». */
@@ -168,3 +198,4 @@ public class HistoryFragment extends LogFragment {
         }
     }
 }
+

@@ -1,4 +1,4 @@
-package kz.mobicom.app;
+package com.example.mobicom;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -15,7 +15,11 @@ import java.util.Locale;
 
 public class Db extends SQLiteOpenHelper {
 
+    /** Демо абоненттердің және парольсіз ескі аккаунттардың паролі. */
+    public static final String DEMO_PASSWORD = "123456";
+
     private static Db instance;
+    private final Context appContext;
 
     public static synchronized Db get(Context context) {
         if (instance == null) instance = new Db(context.getApplicationContext());
@@ -23,7 +27,15 @@ public class Db extends SQLiteOpenHelper {
     }
 
     private Db(Context context) {
-        super(context, "mobicom.db", null, 1);
+        super(context, "mobicom.db", null, 2);
+        this.appContext = context;
+    }
+
+    /** Өзгерістен кейін абонентті бұлтқа (Firebase) жібереді. Қате болса, үнсіз өтеді. */
+    private void sync(int userId, boolean isNew) {
+        try {
+            CloudSync.push(appContext, userId, isNew);
+        } catch (Exception ignored) { }
     }
 
     // ================================================================ кестелер
@@ -67,6 +79,7 @@ public class Db extends SQLiteOpenHelper {
         ContentValues u = new ContentValues();
         u.put("name", "Пайдаланушы");
         u.put("phone", "7001234567");
+        u.put("password", DEMO_PASSWORD);
         u.put("balance", 2450);
         u.put("tariff_id", 2);
         long id = db.insert("users", null, u);
@@ -98,6 +111,7 @@ public class Db extends SQLiteOpenHelper {
         ContentValues u = new ContentValues();
         u.put("name", name);
         u.put("phone", phone);
+        u.put("password", DEMO_PASSWORD);
         u.put("balance", balance);
         u.put("tariff_id", tariffId);
         long id = db.insert("users", null, u);
@@ -115,13 +129,14 @@ public class Db extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS user_services");
-        db.execSQL("DROP TABLE IF EXISTS usage");
-        db.execSQL("DROP TABLE IF EXISTS transactions");
-        db.execSQL("DROP TABLE IF EXISTS services");
-        db.execSQL("DROP TABLE IF EXISTS tariffs");
-        db.execSQL("DROP TABLE IF EXISTS users");
-        onCreate(db);
+        // 1 -> 2: парольге көшу. Деректер өшпейді, парольсіз аккаунттарға демо пароль беріледі.
+        if (oldVersion < 2) {
+            try {
+                db.execSQL("ALTER TABLE users ADD COLUMN password TEXT");   // баған бар болса, қате үнсіз өтеді
+            } catch (Exception ignored) { }
+            db.execSQL("UPDATE users SET password = '" + DEMO_PASSWORD
+                    + "' WHERE password IS NULL OR password = ''");
+        }
     }
 
     // ================================================================ көмекші әдістер
@@ -203,19 +218,100 @@ public class Db extends SQLiteOpenHelper {
         }
     }
 
+    /** Кіру: нөмір мен пароль сәйкес болса, абонент id-ін қайтарады. Нөмір жоқ: -1, пароль қате: -2. */
+    public int checkLogin(String phone, String password) {
+        try (Cursor c = getReadableDatabase().query("users", new String[]{"id", "password"}, "phone = ?",
+                new String[]{phone}, null, null, null)) {
+            if (!c.moveToFirst()) return -1;
+            String saved = c.getString(1);
+            if (saved == null || saved.isEmpty()) saved = DEMO_PASSWORD;
+            return saved.equals(password) ? c.getInt(0) : -2;
+        }
+    }
+
+    /** UPDATE: парольді өзгерту және бұлтқа жіберу. */
+    public void setPassword(int userId, String password) {
+        ContentValues v = new ContentValues();
+        v.put("password", password);
+        getWritableDatabase().update("users", v, "id = ?", new String[]{String.valueOf(userId)});
+        sync(userId, false);
+    }
+
+    /** SELECT ... WHERE name = ?: осы атпен тіркелген нөмірлер (нөмірді ұмытқанда). */
+    public List<String> findPhonesByName(String name) {
+        List<String> list = new ArrayList<>();
+        try (Cursor c = getReadableDatabase().query("users", new String[]{"phone"},
+                "LOWER(name) = LOWER(?)", new String[]{name.trim()}, null, null, "id")) {
+            while (c.moveToNext()) list.add(c.getString(0));
+        }
+        return list;
+    }
+
     /** INSERT: жаңа абонент (баланс 1000 ₸ бонус). */
-    public int createUser(String name, String phone) {
+    public int createUser(String name, String phone, String password) {
         SQLiteDatabase db = getWritableDatabase();
+        int result;
         db.beginTransaction();
         try {
             ContentValues v = new ContentValues();
             v.put("name", name);
             v.put("phone", phone);
+            v.put("password", password);
             v.put("balance", 1000);
             v.put("tariff_id", 1);
             long id = db.insert("users", null, v);
             addUsage(db, id, 15, 150, 100);
             addTx(db, id, Models.Tx.BONUS, "", 1000, now());
+            db.setTransactionSuccessful();
+            result = (int) id;
+        } finally {
+            db.endTransaction();
+        }
+        sync(result, true);
+        return result;
+    }
+
+    /** Бұлттағы деректен абонентті осы телефонда қалпына келтіреді (басқа телефоннан тіркелген болса). */
+    @SuppressWarnings("unchecked")
+    public int restoreUser(java.util.Map<String, Object> m) {
+        SQLiteDatabase db = getWritableDatabase();
+        String phone = String.valueOf(m.get("phone"));
+        int tariffId = m.get("tariffId") instanceof Number ? ((Number) m.get("tariffId")).intValue() : 1;
+        try (Cursor c = db.query("tariffs", new String[]{"id"}, "id = ?",
+                new String[]{String.valueOf(tariffId)}, null, null, null)) {
+            if (!c.moveToFirst()) tariffId = 1;   // тариф осы телефонда жоқ болса, бастапқы тариф
+        }
+        db.beginTransaction();
+        try {
+            ContentValues v = new ContentValues();
+            v.put("name", String.valueOf(m.get("name")));
+            v.put("phone", phone);
+            v.put("password", m.get("password") == null ? DEMO_PASSWORD : String.valueOf(m.get("password")));
+            v.put("balance", m.get("balance") instanceof Number ? ((Number) m.get("balance")).doubleValue() : 0);
+            v.put("tariff_id", tariffId);
+            long id = db.insert("users", null, v);
+            addUsage(db, id,
+                    m.get("internetLeft") instanceof Number ? ((Number) m.get("internetLeft")).doubleValue() : 0,
+                    m.get("minutesLeft") instanceof Number ? ((Number) m.get("minutesLeft")).intValue() : 0,
+                    m.get("smsLeft") instanceof Number ? ((Number) m.get("smsLeft")).intValue() : 0);
+
+            Object services = m.get("services");
+            if (services instanceof java.util.List) {
+                for (Object o : (java.util.List<Object>) services) {
+                    ContentValues us = new ContentValues();
+                    us.put("user_id", id);
+                    us.put("service_id", ((Number) o).intValue());
+                    db.insertWithOnConflict("user_services", null, us, SQLiteDatabase.CONFLICT_IGNORE);
+                }
+            }
+            Object txs = m.get("transactions");
+            if (txs instanceof java.util.List) {
+                for (Object o : (java.util.List<Object>) txs) {
+                    java.util.Map<String, Object> t = (java.util.Map<String, Object>) o;
+                    addTx(db, id, String.valueOf(t.get("type")), String.valueOf(t.get("title")),
+                            ((Number) t.get("amount")).doubleValue(), String.valueOf(t.get("createdAt")));
+                }
+            }
             db.setTransactionSuccessful();
             return (int) id;
         } finally {
@@ -226,7 +322,7 @@ public class Db extends SQLiteOpenHelper {
     /** SELECT ... JOIN: абонент + тариф + пакеттер қалдығы бір сұрауда. */
     public Models.User getUser(int id) {
         String sql = "SELECT u.id, u.name, u.phone, u.balance, u.tariff_id, t.name, t.internet_gb, "
-                + "t.minutes, t.sms, g.internet_left, g.minutes_left, g.sms_left "
+                + "t.minutes, t.sms, g.internet_left, g.minutes_left, g.sms_left, u.password "
                 + "FROM users u JOIN tariffs t ON t.id = u.tariff_id "
                 + "JOIN usage g ON g.user_id = u.id WHERE u.id = ?";
         try (Cursor c = getReadableDatabase().rawQuery(sql, new String[]{String.valueOf(id)})) {
@@ -244,21 +340,28 @@ public class Db extends SQLiteOpenHelper {
             u.internetLeft = c.getDouble(9);
             u.minutesLeft = c.getInt(10);
             u.smsLeft = c.getInt(11);
+            u.password = c.getString(12);
             return u;
         }
     }
 
     /** UPDATE: баланс толтыру және тарихқа жазу (бір транзакцияда). */
     public void topUp(int userId, double amount) {
+        topUp(userId, amount, "");
+    }
+
+    /** title: төлем тәсілі және карта соңғы 4 саны, мысалы «Kaspi Bank •••• 4242» (толық нөмір сақталмайды). */
+    public void topUp(int userId, double amount, String title) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
             setBalance(db, userId, balanceOf(db, userId) + amount);
-            addTx(db, userId, Models.Tx.TOPUP, "", amount, now());
+            addTx(db, userId, Models.Tx.TOPUP, title, amount, now());
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
         }
+        sync(userId, false);
     }
 
     // ================================================================ тарифтер
@@ -302,10 +405,11 @@ public class Db extends SQLiteOpenHelper {
 
             addTx(db, userId, Models.Tx.TARIFF, tariff.name, -tariff.price, now());
             db.setTransactionSuccessful();
-            return true;
         } finally {
             db.endTransaction();
         }
+        sync(userId, false);
+        return true;
     }
 
     // ================================================================ қызметтер
@@ -331,6 +435,7 @@ public class Db extends SQLiteOpenHelper {
         String[] args = {String.valueOf(userId), String.valueOf(service.id)};
         if (!on) {
             db.delete("user_services", "user_id = ? AND service_id = ?", args);
+            sync(userId, false);
             return true;
         }
         double balance = balanceOf(db, userId);
@@ -345,10 +450,11 @@ public class Db extends SQLiteOpenHelper {
             db.insertWithOnConflict("user_services", null, v, SQLiteDatabase.CONFLICT_IGNORE);
             addTx(db, userId, Models.Tx.SERVICE, service.nameKk, -service.price, now());
             db.setTransactionSuccessful();
-            return true;
         } finally {
             db.endTransaction();
         }
+        sync(userId, false);
+        return true;
     }
 
     // ================================================================ операциялар тарихы
@@ -440,7 +546,7 @@ public class Db extends SQLiteOpenHelper {
 
     /** Админ: абоненттер тізімі (іздеу: нөмір немесе аты). JOIN + LEFT JOIN + GROUP BY + LIKE. */
     public List<Models.AdminUser> adminUsers(String query) {
-        String sql = "SELECT u.id, u.name, u.phone, t.name, u.balance, COUNT(x.id), COALESCE(-SUM(x.amount), 0) "
+        String sql = "SELECT u.id, u.name, u.phone, t.name, u.balance, COUNT(x.id), COALESCE(-SUM(x.amount), 0), u.password "
                 + "FROM users u JOIN tariffs t ON t.id = u.tariff_id "
                 + "LEFT JOIN transactions x ON x.user_id = u.id AND x.type IN ('TARIFF', 'SERVICE') "
                 + "WHERE u.phone LIKE ? OR u.name LIKE ? GROUP BY u.id ORDER BY u.id";
@@ -456,6 +562,7 @@ public class Db extends SQLiteOpenHelper {
                 u.balance = c.getDouble(4);
                 u.purchases = c.getInt(5);
                 u.spent = c.getDouble(6);
+                u.password = c.getString(7);
                 list.add(u);
             }
         }
@@ -473,6 +580,7 @@ public class Db extends SQLiteOpenHelper {
         } finally {
             db.endTransaction();
         }
+        sync(userId, false);
     }
 
     /** Админ: абоненттің тарифін төлемсіз ауыстыру (UPDATE). */
@@ -495,12 +603,14 @@ public class Db extends SQLiteOpenHelper {
         } finally {
             db.endTransaction();
         }
+        sync(userId, false);
     }
 
     /** Админ: абонентті және оның барлық деректерін өшіру (4 кестеден DELETE). */
     public void adminDeleteUser(int userId) {
         SQLiteDatabase db = getWritableDatabase();
         String[] args = {String.valueOf(userId)};
+        Models.User old = getUser(userId);
         db.beginTransaction();
         try {
             db.delete("user_services", "user_id = ?", args);
@@ -511,6 +621,7 @@ public class Db extends SQLiteOpenHelper {
         } finally {
             db.endTransaction();
         }
+        if (old != null) CloudSync.delete(appContext, old.phone);
     }
 
     // ---------------------------------------------------------------- админ: тарифтер
@@ -591,11 +702,19 @@ public class Db extends SQLiteOpenHelper {
 
     /** DELETE: бір жазба. */
     public void deleteTransaction(int id) {
+        int userId = -1;
+        try (Cursor c = getReadableDatabase().query("transactions", new String[]{"user_id"}, "id = ?",
+                new String[]{String.valueOf(id)}, null, null, null)) {
+            if (c.moveToFirst()) userId = c.getInt(0);
+        }
         getWritableDatabase().delete("transactions", "id = ?", new String[]{String.valueOf(id)});
+        if (userId != -1) sync(userId, false);
     }
 
     /** DELETE: абоненттің барлық жазбасы. */
     public void clearTransactions(int userId) {
         getWritableDatabase().delete("transactions", "user_id = ?", new String[]{String.valueOf(userId)});
+        sync(userId, false);
     }
 }
+

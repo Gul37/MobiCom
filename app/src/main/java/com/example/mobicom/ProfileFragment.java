@@ -1,8 +1,7 @@
-package kz.mobicom.app;
+package com.example.mobicom;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,9 +61,9 @@ public class ProfileFragment extends LogFragment {
         view.findViewById(R.id.buttonRingtones).setOnClickListener(v ->
                 startActivity(new Intent(requireContext(), RingtonesActivity.class)));
 
-        // Жасырын (implicit) Intent-тер
-        view.findViewById(R.id.buttonCall).setOnClickListener(v ->
-                open(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:611"))));
+        // Орналасу (GPS) және жасырын (implicit) Intent
+        view.findViewById(R.id.buttonSalons).setOnClickListener(v ->
+                startActivity(new Intent(requireContext(), SalonsActivity.class)));
         view.findViewById(R.id.buttonShare).setOnClickListener(v -> {
             Intent send = new Intent(Intent.ACTION_SEND);
             send.setType("text/plain");

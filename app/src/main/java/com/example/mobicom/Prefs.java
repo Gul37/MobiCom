@@ -1,4 +1,4 @@
-package kz.mobicom.app;
+package com.example.mobicom;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,6 +10,15 @@ public final class Prefs {
     private static SharedPreferences p(Context c) {
         return c.getApplicationContext().getSharedPreferences("mobicom_java", Context.MODE_PRIVATE);
     }
+
+    /** Админнің жеке паролі (абоненттердің парольдерінен бөлек). Бастапқы мәні: Admin2026. */
+    public static final String DEFAULT_ADMIN_PASSWORD = "Admin2026";
+
+    public static String getAdminPassword(Context c) {
+        return p(c).getString("adminPassword", DEFAULT_ADMIN_PASSWORD);
+    }
+
+    public static void setAdminPassword(Context c, String v) { p(c).edit().putString("adminPassword", v).apply(); }
 
     public static int getUserId(Context c) { return p(c).getInt("userId", -1); }
 

@@ -1,4 +1,4 @@
-package kz.mobicom.app;
+package com.example.mobicom;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;

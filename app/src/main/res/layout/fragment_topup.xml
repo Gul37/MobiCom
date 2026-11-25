@@ -83,6 +83,113 @@
                 android:textColor="@color/mobi_text" />
         </RadioGroup>
 
+        <!-- Банк картасы / Kaspi: карта деректерін енгізу формасы -->
+        <LinearLayout
+            android:id="@+id/cardForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/card_bank"
+                android:textColor="@color/mobi_muted"
+                android:textSize="13sp" />
+
+            <Spinner
+                android:id="@+id/bankSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+
+            <TextView
+                android:id="@+id/bankFixed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/mobi_orange"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/cardNumber"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/card_number_hint"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="19"
+                android:textColor="@color/mobi_text"
+                android:textColorHint="@color/mobi_muted" />
+
+            <TextView
+                android:id="@+id/cardBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/mobi_muted"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/cardExpiry"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:hint="@string/card_expiry_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textColor="@color/mobi_text"
+                    android:textColorHint="@color/mobi_muted" />
+
+                <EditText
+                    android:id="@+id/cardCvv"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:hint="@string/card_cvv_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="numberPassword"
+                    android:maxLength="3"
+                    android:textColor="@color/mobi_text"
+                    android:textColorHint="@color/mobi_muted" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/cardHolder"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/card_holder_hint"
+                android:importantForAutofill="no"
+                android:inputType="textCapCharacters|textPersonName"
+                android:maxLength="26"
+                android:textColor="@color/mobi_text"
+                android:textColorHint="@color/mobi_muted" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/card_note"
+                android:textColor="@color/mobi_muted"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/terminalInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/mobi_text"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
         <CheckBox
             android:id="@+id/receiptCheck"
             android:layout_width="wrap_content"
