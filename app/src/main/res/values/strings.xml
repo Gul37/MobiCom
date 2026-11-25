@@ -15,11 +15,11 @@
     <string name="action_save">Сақтау</string>
     <string name="action_back">Артқа</string>
     <string name="login_title">Қош келдіңіз!</string>
-    <string name="login_hint">Жеке кабинетке кіру үшін нөміріңізді енгізіңіз</string>
+    <string name="login_hint">Жеке кабинетке кіру үшін нөміріңіз бен парольді енгізіңіз</string>
     <string name="hint_code">SMS-код</string>
     <string name="login_terms">Пайдалану шарттарымен келісемін</string>
     <string name="btn_login">Кіру</string>
-    <string name="error_phone">Нөмір 10 саннан тұруы керек</string>
+    <string name="error_phone">Нөмір 10 немесе 11 саннан тұруы керек</string>
     <string name="error_code">Қате SMS-код</string>
     <string name="error_terms">Шарттармен келісу керек</string>
     <string name="toast_welcome">Қош келдіңіз!</string>
@@ -100,8 +100,7 @@
     <string name="dark_mode">Қараңғы режим</string>
     <string name="notify_enabled">Хабарландыруларды қосу</string>
     <string name="profile_language">Тіл</string>
-    <string name="support_title">Қолдау қызметі</string>
-    <string name="profile_call">Қолдау қызметіне қоңырау: 611</string>
+    <string name="support_title">Қолдау және салондар</string>
     <string name="profile_share">Қосымшамен бөлісу</string>
     <string name="share_text">MobiCom: мобильді оператор қосымшасы!</string>
     <string name="profile_logout">Шығу</string>
@@ -126,7 +125,7 @@
     <string name="admin_users_title">Абоненттер тізімі</string>
     <string name="admin_user_row">+7 %1$s\nТариф: %2$s, баланс: %3$s\nСатып алу: %4$d рет, жұмсалған: %5$s</string>
     <string name="ring_title">Рингтондар</string>
-    <string name="ring_hint">MobiCom қоңырау әуендері. Басып тыңдаңыз, қайта басса тоқтайды.</string>
+    <string name="ring_hint">MobiCom қоңырау әуендері. Әуенді таңдап, плеер арқылы ойнатыңыз, кідіртіңіз немесе жылжытыңыз.</string>
     <string name="ring_play">Ойнату</string>
     <string name="ring_stop">Тоқтату</string>
     <string name="admin_revenue_label">Жалпы түсім</string>
@@ -166,7 +165,7 @@
     <string name="admin_h_sms">SMS</string>
     <string name="hint_name">Аты-жөніңіз</string>
     <string name="register_title">Тіркелу</string>
-    <string name="register_hint">Аты-жөніңіз бен нөміріңізді енгізіңіз</string>
+    <string name="register_hint">Аты-жөніңіз, нөміріңіз бен парольді енгізіңіз</string>
     <string name="btn_register">Тіркелу</string>
     <string name="switch_to_register">Аккаунт жоқ па? Тіркелу</string>
     <string name="switch_to_login">Тіркелгенсіз бе? Кіру</string>
@@ -176,6 +175,81 @@
     <string name="toast_welcome_name">Қош келдіңіз, %1$s!</string>
     <string name="promo_title">Жарнама бейнесі</string>
     <string name="promo_error">Бейнені ашу мүмкін болмады</string>
+
+    <string name="error_phone_long">Нөмір 11 саннан аспауы керек</string>
+    <string name="error_code_first">Алдымен «Код алу» батырмасын басыңыз</string>
+    <string name="error_cloud">Нөмір табылмады немесе интернет жоқ. Алдымен тіркеліңіз</string>
+    <string name="login_wait">Тексерілуде...</string>
+    <string name="btn_send_code">Код алу</string>
+    <string name="btn_resend_code">Қайта жіберу (%1$d)</string>
+    <string name="code_sent_to">Код +7 %1$s нөміріне жіберілді (SMS хабарландыру). Ол 2 минут жарамды</string>
+    <string name="sms_sender">MobiCom SMS</string>
+    <string name="sms_text">Растау коды: %1$s. Ешкімге айтпаңыз!</string>
+    <string name="sms_topup_text">Баланс толтырылды: %1$s. Қалдық: %2$s</string>
+    <string name="toast_code_sent">Код жіберілді. Хабарландыруды қараңыз</string>
+    <string name="card_bank">Банк</string>
+    <string name="bank_kaspi">Kaspi Bank</string>
+    <string name="card_number_hint">Карта нөмірі: 0000 0000 0000 0000</string>
+    <string name="card_expiry_hint">Мерзімі АА/ЖЖ</string>
+    <string name="card_cvv_hint">CVV</string>
+    <string name="card_holder_hint">Карта иесінің аты (латынша)</string>
+    <string name="card_note">Карта деректері сақталмайды. Тарихқа тек соңғы 4 сан жазылады</string>
+    <string name="error_card_number">Карта нөмірі қате (16 сан)</string>
+    <string name="error_card_expiry">Мерзімі қате немесе өтіп кеткен (АА/ЖЖ)</string>
+    <string name="error_card_cvv">CVV 3 саннан тұруы керек</string>
+    <string name="error_card_holder">Аты латын әріптерімен жазылуы керек</string>
+    <string name="terminal_info">Терминалда «MobiCom» қызметін таңдап, нөміріңізді енгізіңіз: +7 %1$s. Ақша бірден есепке түседі</string>
+    <string name="topup_processing">Төлем өңделуде...</string>
+    <string name="receipt_title">Чек</string>
+    <string name="receipt_text">MobiCom чегі\nКүні: %1$s\nАбонент: +7 %2$s\nТәсіл: %3$s\nСома: %4$s\nЖаңа баланс: %5$s</string>
+    <string name="receipt_saved">Файл: %1$s</string>
+    <string name="menu_export">Файлға сақтау</string>
+    <string name="export_done">Тарих файлға сақталды:\n%1$s</string>
+    <string name="salons_title">Салондар (GPS)</string>
+    <string name="salons_button">Жақын салондар (GPS)</string>
+    <string name="salons_hint">Салонды басса, карта ашылады. Қашықтық GPS бойынша есептеледі.</string>
+    <string name="gps_locate">Орнымды анықта</string>
+    <string name="gps_settings">Орын параметрлері</string>
+    <string name="gps_provider">%1$s: %2$s</string>
+    <string name="gps_provider_name">Провайдер</string>
+    <string name="gps_no_permission">Орынды анықтауға рұқсат берілмеген</string>
+    <string name="gps_searching">Орын анықталуда... Терезеге жақындаңыз немесе Wi-Fi қосыңыз</string>
+    <string name="gps_nearest">Ең жақын салон: %1$s (%2$s)</string>
+    <string name="gps_nearest_unknown">Орын анықталғаннан кейін ең жақын салон көрсетіледі</string>
+    <string name="ring_choose">Әуенді таңдаңыз</string>
+    <string name="ring_back10">10 секунд артқа</string>
+    <string name="ring_forward10">10 секунд алға</string>
+    <string name="ring_error">Әуенді ашу мүмкін болмады</string>
+    <string name="admin_nav_cloud">Онлайн</string>
+    <string name="cloud_connecting">Онлайн базаға қосылуда...</string>
+    <string name="cloud_count">Онлайн тіркелген абоненттер: %1$d</string>
+    <string name="cloud_error">Онлайн база қолжетімсіз: %1$s</string>
+    <string name="cloud_row_sub">Тариф: %1$s\nҚұрылғы: %2$s\nПароль: %3$s</string>
+    <string name="cloud_detail">Тариф: %1$s\nБаланс: %2$s\nҚұрылғы: %3$s\nТіркелген: %4$s\nСоңғы өзгеріс: %5$s\nПароль: %6$s</string>
+
+    <string name="hint_password">Пароль</string>
+    <string name="hint_new_password">Жаңа пароль</string>
+    <string name="show_password">Парольді көрсету</string>
+    <string name="forgot_password">Парольді ұмыттым</string>
+    <string name="forgot_phone">Нөмірімді ұмыттым</string>
+    <string name="error_password_short">Пароль кемінде %1$d таңба болуы керек</string>
+    <string name="error_password_empty">Парольді енгізіңіз</string>
+    <string name="error_password_wrong">Пароль қате</string>
+    <string name="error_name_not_found">Бұл атпен тіркелген абонент табылмады</string>
+    <string name="recovery_password_title">Парольді қалпына келтіру</string>
+    <string name="recovery_phone_title">Нөмірді еске түсіру</string>
+    <string name="recovery_password_hint">Тіркелген нөміріңізді енгізіңіз. SMS-хабарландыру арқылы код келеді</string>
+    <string name="recovery_phone_hint">Тіркелгендегі аты-жөніңізді енгізіңіз. Код келгеннен кейін нөміріңіз көрсетіледі</string>
+    <string name="recovery_code_sent">Код SMS-хабарландыру ретінде жіберілді. Ол 2 минут жарамды</string>
+    <string name="btn_confirm_code">Растау</string>
+    <string name="recovery_password_done">Пароль жаңартылды. Енді жаңа парольмен кіріңіз</string>
+    <string name="recovery_phone_result">Сіздің нөміріңіз:\n%1$s</string>
+    <string name="admin_password_line">Пароль: %1$s</string>
+    <string name="admin_action_password">Парольді өзгерту</string>
+    <string name="admin_password_current">Қазіргі админ паролі</string>
+    <string name="admin_password_changed">Пароль өзгертілді</string>
+    <string name="admin_change_password">Админ паролін өзгерту</string>
+    <string name="services_toggled_on">Қызмет қосылды</string>
 
     <string-array name="reminder_types">
         <item>Балансты толтыру</item>
@@ -196,5 +270,14 @@
         <item>Вальс (Хисаиси)</item>
         <item>Толқын</item>
         <item>Neon Pulse</item>
+    </string-array>
+
+    <string-array name="banks">
+        <item>Halyk Bank</item>
+        <item>Jusan Bank</item>
+        <item>Forte Bank</item>
+        <item>Freedom Bank</item>
+        <item>Bereke Bank</item>
+        <item>Басқа банк</item>
     </string-array>
 </resources>

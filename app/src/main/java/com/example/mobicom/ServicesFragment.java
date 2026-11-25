@@ -1,4 +1,4 @@
-package kz.mobicom.app;
+package com.example.mobicom;
 
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
@@ -26,6 +27,7 @@ public class ServicesFragment extends LogFragment {
     private final List<Models.Service> items = new ArrayList<>();
     private ServiceAdapter adapter;
     private ListView listView;
+    private int pulseId = -1;      // жаңа қосылған/өшірілген қызметтің id-і: карточка «серпіледі»
 
     @Nullable
     @Override
@@ -46,14 +48,15 @@ public class ServicesFragment extends LogFragment {
     @Override
     public void onResume() {
         super.onResume();
-        reload();
+        reload(true);
     }
 
-    private void reload() {
+    /** animateAll: тізім толық қайта шығарылғанда карточкалар кезекпен оңнан сырғиды (layoutAnimation). */
+    private void reload(boolean animateAll) {
         items.clear();
         items.addAll(Db.get(requireContext()).getServices(Prefs.getUserId(requireContext())));
         adapter.notifyDataSetChanged();
-        listView.scheduleLayoutAnimation();
+        if (animateAll) listView.scheduleLayoutAnimation();
     }
 
     private void confirmToggle(Models.Service s, boolean wantOn) {
@@ -72,7 +75,8 @@ public class ServicesFragment extends LogFragment {
         if (ok) {
             Toast.makeText(requireContext(),
                     wantOn ? R.string.toast_service_on : R.string.toast_service_off, Toast.LENGTH_SHORT).show();
-            reload();
+            pulseId = s.id;       // property animation: өзгерген карточка кішірейіп, серпіліп қайтады
+            reload(false);
         } else {
             Toast.makeText(requireContext(), R.string.toast_not_enough, Toast.LENGTH_LONG).show();
             ((MainActivity) requireActivity()).goTo(R.id.nav_topup);
@@ -130,6 +134,16 @@ public class ServicesFragment extends LogFragment {
             ((TextView) convertView.findViewById(R.id.servicePrice))
                     .setText(getString(R.string.price_per_month, s.price));
 
+            convertView.setScaleX(1f);
+            convertView.setScaleY(1f);
+            if (s.id == pulseId) {
+                pulseId = -1;
+                convertView.setScaleX(0.88f);
+                convertView.setScaleY(0.88f);
+                convertView.animate().scaleX(1f).scaleY(1f).setDuration(500)
+                        .setInterpolator(new OvershootInterpolator(3f)).start();
+            }
+
             CheckBox check = convertView.findViewById(R.id.serviceCheck);
             check.setChecked(s.active);
             // Нақты күй дерекқордан келеді, сондықтан белгіні қайтарып қойып, растау сұраймыз
@@ -142,3 +156,4 @@ public class ServicesFragment extends LogFragment {
         }
     }
 }
+

@@ -1,4 +1,4 @@
-package kz.mobicom.app;
+package com.example.mobicom;
 
 import java.io.Serializable;
 
@@ -67,12 +67,13 @@ public final class Models {
     public static class AdminUser {
         public int id, purchases;
         public double balance, spent;
-        public String name, phone, tariffName;
+        public String name, phone, tariffName, password;
     }
 
     public static class User {
         public int id, tariffId, tariffGb, tariffMinutes, tariffSms, minutesLeft, smsLeft;
         public double balance, internetLeft;
-        public String name, phone, tariffName;
+        public String name, phone, tariffName, password;
     }
 }
+

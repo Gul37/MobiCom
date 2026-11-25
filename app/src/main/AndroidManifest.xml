@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Android 11+: телефон, пошта, браузер қосымшаларын Intent арқылы табу үшін -->
+    <!-- Firebase (онлайн база) үшін интернет -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- GPS: ACCESS_FINE_LOCATION GPS пен Network-ті, ACCESS_COARSE_LOCATION тек Network-ті қамтиды -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- SMS орнына хабарландыру (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Android 11+: бөлісу және карта қосымшаларын Intent арқылы табу үшін -->
     <queries>
-        <intent>
-            <action android:name="android.intent.action.DIAL" />
-        </intent>
         <intent>
             <action android:name="android.intent.action.SEND" />
             <data android:mimeType="text/plain" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="geo" />
         </intent>
     </queries>
 
@@ -55,6 +64,19 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
+        <!-- Пароль немесе нөмір ұмытылғанда қалпына келтіру -->
+        <activity
+            android:name=".RecoveryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- GPS: ең жақын салон -->
+        <activity
+            android:name=".SalonsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <!-- Аудио: рингтондар -->
         <activity
             android:name=".RingtonesActivity"
@@ -78,3 +100,4 @@
         </service>
     </application>
 </manifest>
+

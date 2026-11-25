@@ -64,21 +64,29 @@
             android:layout_marginTop="24dp"
             android:hint="+7 700 123 45 67"
             android:importantForAutofill="no"
+            android:digits="0123456789+ ()-"
             android:inputType="phone"
             android:textColor="@color/mobi_text"
             android:textColorHint="@color/mobi_muted" />
 
         <EditText
-            android:id="@+id/codeInput"
+            android:id="@+id/passwordInput"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
-            android:hint="@string/hint_code"
+            android:hint="@string/hint_password"
             android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
+            android:inputType="textPassword"
+            android:maxLength="30"
             android:textColor="@color/mobi_text"
             android:textColorHint="@color/mobi_muted" />
+
+        <CheckBox
+            android:id="@+id/showPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/show_password"
+            android:textColor="@color/mobi_muted" />
 
         <CheckBox
             android:id="@+id/termsCheck"
@@ -86,7 +94,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/login_terms"
-            android:textColor="@color/mobi_text" />
+            android:textColor="@color/mobi_text"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/loginButton"
@@ -96,6 +105,20 @@
             android:text="@string/btn_login"
             android:textSize="16sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/forgotPassword"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password" />
+
+        <Button
+            android:id="@+id/forgotPhone"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_phone" />
 
         <Button
             android:id="@+id/switchMode"

@@ -16,4 +16,8 @@
         android:id="@+id/admin_nav_services"
         android:icon="@drawable/ic_services"
         android:title="@string/admin_nav_services" />
+    <item
+        android:id="@+id/admin_nav_cloud"
+        android:icon="@drawable/ic_cloud"
+        android:title="@string/admin_nav_cloud" />
 </menu>
